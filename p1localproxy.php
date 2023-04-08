@@ -25,11 +25,11 @@
 </ol>
 </div>
 <div style="display: inline-block; border: 1px solid black; vertical-align: top; padding: 2rem 2rem;">
-<p>Example commands</p>
+<p>Hints and Example Commands</p>
 <ul>
-<li> Enter filter(s)
-<li> Enter API key, hit button
-<li> Get results, copy paste to eecslab-22
+<li> When searching for people, names go in (3)
+<li> top-headlines? (1), country=us& (2) - Get top headlines in the US
+<li> everything? (1), q=Apple& (3), from=2023-04-07& (4), sortBy=popularity& (5)
 </ul>
 </div>
 </div>
@@ -51,11 +51,10 @@ var apikey = document.getElementById('key').value;
 
 let newURL = base + whatYouWant + whereYouWant + reg + whenYouWant + sortYouWant + apikey;
 
-
-
-
 //try catch statement after grabbing modifiers
 try {
+// Clear display before making a new request 
+document.getElementById('displayarea').value = '';
 var req = new Request(newURL);
 fetch(req).then(req => req.json()).then(data => textdisplay(data.articles));
 }
@@ -94,6 +93,8 @@ for (i=0;i<data.length;i++){
 }
 }
 
+
+
 //Ignore this for later
 //data is the object, you need to get the item by it's number first THEN pull the other data out
 //for (i=0;i<data.length;i++) {
@@ -105,7 +106,6 @@ for (i=0;i<data.length;i++){
 //add these to the text area
 //document.getElementById('displayarea').value = document.getElementById('displayarea').value + "\n" + article;
 //}
-
 
 
 </script>
